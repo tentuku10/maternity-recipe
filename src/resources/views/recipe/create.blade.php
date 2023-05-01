@@ -14,21 +14,23 @@
                     <div class="w-full flex flex-col">
                         <label for="body" class="font-semibold leading-none mt-4">料理名</label>
                         <input type="text" name="dish_name"
-                            class="w-auto py-2 placeholder-gray-300 border border-gray-300 rounded-md" id="title"
-                            value="{{old('dish_name')}}">
+                            class="w-auto py-2 placeholder-gray-300 border border-gray-300 rounded-md focus:border-yellow-500 focus:ring-yellow-500"
+                            id="title" value="{{old('dish_name')}}">
                     </div>
                 </div>
 
                 <div class="w-full flex flex-col">
                     <label for="body" class="font-semibold leading-none mt-4">食材</label>
-                    <textarea name="food" class="w-auto py-2 border border-gray-300 rounded-md" id="body" cols="30"
-                        rows="5">{{old('food')}}</textarea>
+                    <textarea name="food"
+                        class="w-auto py-2 border border-gray-300 rounded-md focus:border-yellow-500 focus:ring-yellow-500"
+                        id="body" cols="30" rows="5">{{old('food')}}</textarea>
                 </div>
 
                 <div class="w-full flex flex-col">
                     <label for="body" class="font-semibold leading-none mt-4">作り方</label>
-                    <textarea name="how_to_make" class="w-auto py-2 border border-gray-300 rounded-md" id="body"
-                        cols="30" rows="10">{{old('how_to_make')}}</textarea>
+                    <textarea name="how_to_make"
+                        class="w-auto py-2 border border-gray-300 rounded-md focus:border-yellow-500 focus:ring-yellow-500"
+                        id="body" cols="30" rows="10">{{old('how_to_make')}}</textarea>
                 </div>
 
                 <div class="w-full flex flex-col">
@@ -38,7 +40,7 @@
                     </div>
                 </div>
 
-                <x-primary-button class="mt-4">
+                <x-primary-button class="mt-4 bg-yellow-500 hover:bg-yellow-600">
                     送信する
                 </x-primary-button>
 
