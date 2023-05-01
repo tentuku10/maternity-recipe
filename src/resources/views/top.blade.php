@@ -1,39 +1,24 @@
-<!DOCTYPE html>
-<html lang="ja">
-
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-  <title>マタレシピ</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.7/tailwind.min.css"
-    integrity="sha512-Jp/LLTaU5hNlWJn/+f+Gq3PQHlrHQ0gzBwn+2X80JklGjKc1aqrv8Dwsx+ID+C/eJb+0EjU5/n6U0X6UdPK0dw=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
-</head>
-
-<body>
-  <div class="flex flex-col h-screen justify-between">
-    <header class="bg-gray-900 text-white flex items-center justify-between px-4 py-3">
-      <h1 class="text-xl font-bold">マタレシピ
+<section class="text-gray-600 body-font">
+  <div class="container mx-auto flex px-5 py-24 md:flex-row flex-col items-center">
+    <div
+      class="lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-center">
+      <h1 class="title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-900">
+        マタレシピ
       </h1>
-    </header>
-    <main class="flex-grow px-4 py-8">
-      <p class="text-gray-500 leading-relaxed">
-        料理はめんどくさいけど赤ちゃんのために栄養は取らなきゃ。</br>そんな悩みを解決する簡単なレシピを共有するアプリです。
-      </p>
-      <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-        href="{{ route('register') }}">
-        新規登録
-      </a>
-      <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-        href="{{ route('login') }}">
-        ログイン
-      </a>
-    </main>
-    <footer class="bg-gray-900 text-white flex items-center justify-center px-4 py-3">
-      <p class="text-sm">&copy; 2023 Simple Web App. All rights reserved.</p>
-    </footer>
+      <p class="mb-8 leading-relaxed">お腹の赤ちゃんのために栄養を取らなきゃいけないけど料理するのが大変</br>そんな夫婦の悩みを解決する『簡単なレシピ』を共有するアプリです</p>
+      <div class="flex justify-center">
+        <button
+          class="inline-flex text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg">
+          <a href="{{ route('register') }}">新規登録</a></button>
+        <button
+          class="ml-4 inline-flex text-gray-700 bg-gray-100 border-0 py-2 px-6 focus:outline-none hover:bg-gray-200 rounded text-lg">
+          <a href="{{ route('register') }}">ログイン</a></button>
+      </div>
+    </div>
+    <div class="lg:max-w-lg lg:w-full md:w-1/2 w-4/6">
+      <img class="object-cover object-center rounded" src="{{asset('logo/maternity-recipe-icon.png')}}" width=" 720"
+        height="600">
+    </div>
   </div>
-</body>
-
-</html>
+  @vite(['resources/css/app.css', 'resources/js/app.js'])
+</section>
