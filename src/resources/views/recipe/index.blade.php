@@ -21,6 +21,9 @@
                             </h1>
                         </h1>
                         <hr class="w-full">
+                        @if($recipe->image)
+                        <img src="{{ asset('storage/images/'.$recipe->image)}}" class="mx-auto" style="height:300px;">
+                        @endif
                         <p class="mt-4 text-gray-600 py-4">
                             @foreach ($recipe->tags as $tag)
                             <span
