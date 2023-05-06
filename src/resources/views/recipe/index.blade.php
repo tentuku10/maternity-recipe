@@ -21,7 +21,13 @@
                             </h1>
                         </h1>
                         <hr class="w-full">
-                        {{-- <p class="mt-4 text-gray-600 py-4">②本文</p> --}}
+                        <p class="mt-4 text-gray-600 py-4">
+                            @foreach ($recipe->tags as $tag)
+                            <span
+                                class="inline-flex items-center rounded-md bg-yellow-50 px-2 py-1 text-xs font-medium text-yellow-800 ring-1 ring-inset ring-yellow-600/20">{{
+                                $tag->name }}</span>
+                            @endforeach
+                        </p>
                         <div class="text-sm font-semibold flex flex-row-reverse">
                             <p>{{ $recipe->user->name }}</p>
                         </div>

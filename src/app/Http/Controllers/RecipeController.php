@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Tag;
 use App\Models\Recipe;
 use Illuminate\Http\Request;
 
@@ -39,6 +40,13 @@ class RecipeController extends Controller
             $recipe->image = $name;
         }
         $recipe->save();
+
+        $tags = explode(',', $request->tags);
+        foreach ($tags as $tag_name) {
+            $tag = Tag::firstOrCreate(['name' => $tag_name]);
+            $recipe->tags()->attach($tag);
+        }
+
         return redirect()->route('recipe.index')->with('message', 'レシピを投稿しました');
     }
 
