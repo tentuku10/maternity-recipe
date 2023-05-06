@@ -31,7 +31,13 @@
                     <textarea name="how_to_make" class="w-auto py-2 border border-gray-300 rounded-md" id="body"
                         cols="30" rows="10">{{old('how_to_make', $recipe->how_to_make)}}</textarea>
                 </div>
-
+                <div class="w-full flex flex-col">
+                    <label for="tags" class="font-semibold leading-none mt-4">タグ</label>
+                    <input type="text" name="tags"
+                        class="w-auto py-2 placeholder-gray-300 border border-gray-300 rounded-md" id="tags"
+                        value="{{old('tags', implode(',', $recipe->tags->pluck('name')->toArray()))}}"
+                        style="margin-top: 4px;">
+                </div>
                 <div class="w-full flex flex-col">
                     @if($recipe->image)
                     <img src="{{ asset('storage/images/'.$recipe->image)}}" class="mx-auto" style="height:300px;">
