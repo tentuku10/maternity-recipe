@@ -77,12 +77,18 @@ class RecipeController extends Controller
             $original=request()->file('image')->getClientOriginalName();
             $name=date('Ymd_His').'_'.$original;
             $file=request()->file('image')->move('storage/images', $name);
-            $post->image=$name;
+            $recipe->image=$name;
         }
 
-        $post->save();
+        $recipe->save();
 
-        return redirect()->route('post.show', $post)->with('message', 'レシピを更新しました');
+        $tags = explode(',', $request->tags);
+        foreach ($tags as $tag_name) {
+            $tag = Tag::firstOrCreate(['name' => $tag_name]);
+            $recipe->tags()->attach($tag);
+        }
+
+        return redirect()->route('recipe.show', $recipe)->with('message', 'レシピを更新しました');
     }
 
     public function destroy(Recipe $recipe)
