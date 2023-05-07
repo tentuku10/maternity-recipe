@@ -16,27 +16,28 @@
                         <label for="dish_name" class="font-semibold leading-none mt-4">料理名</label>
                         <input type="text" name="dish_name"
                             class="w-auto py-2 placeholder-gray-300 border border-gray-300 rounded-md" id="dish_name"
-                            value="{{old('dish_name', $recipe->dish_name)}}">
+                            value="{{old('dish_name', $recipe->dish_name)}}" style="margin-top: 4px;">
                     </div>
                 </div>
 
                 <div class="w-full flex flex-col">
                     <label for="food" class="font-semibold leading-none mt-4">食材</label>
                     <textarea name="food" class="w-auto py-2 border border-gray-300 rounded-md" id="food" cols="30"
-                        rows="5">{{old('food', $recipe->food)}}</textarea>
+                        rows="5" style="margin-top: 4px;">{{old('food', $recipe->food)}}</textarea>
                 </div>
 
                 <div class="w-full flex flex-col">
                     <label for="how_to_make" class="font-semibold leading-none mt-4">作り方</label>
                     <textarea name="how_to_make" class="w-auto py-2 border border-gray-300 rounded-md" id="how_to_make"
-                        cols="30" rows="10">{{old('how_to_make', $recipe->how_to_make)}}</textarea>
+                        cols="30" rows="10"
+                        style="margin-top: 4px;">{{old('how_to_make', $recipe->how_to_make)}}</textarea>
                 </div>
                 <div class="w-full flex flex-col">
                     <label for="tags" class="font-semibold leading-none mt-4">タグ</label>
                     <input type="text" name="tags"
                         class="w-auto py-2 placeholder-gray-300 border border-gray-300 rounded-md" id="tags"
                         value="{{old('tags', implode(',', $recipe->tags->pluck('name')->toArray()))}}"
-                        style="margin-top: 4px;">
+                        style="margin-top: 4px;" style="margin-bottom: 8px;">
                 </div>
                 <div class="w-full flex flex-col">
                     @if($recipe->image)
@@ -44,7 +45,7 @@
                     @endif
                     <label for="image" class="font-semibold leading-none mt-4">画像(最大1MB)</label>
                     <div>
-                        <input id="image" type="file" name="image">
+                        <input id="image" type="file" name="image" style="margin-top: 4px;">
                     </div>
                 </div>
 
