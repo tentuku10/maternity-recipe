@@ -33,9 +33,12 @@
                         @endif
                         <p class="mt-4 text-gray-600 py-4">
                             @foreach ($recipe->tags as $tag)
+                            @if ($tag->name != '')
                             <span
-                                class="inline-flex items-center rounded-md bg-yellow-50 px-2 py-1 text-xs font-medium text-yellow-800 ring-1 ring-inset ring-yellow-600/20">{{
-                                $tag->name }}</span>
+                                class="inline-flex items-center rounded-md bg-yellow-50 px-2 py-1 text-xs font-medium text-yellow-800 ring-1 ring-inset ring-yellow-600/20">
+                                {{ $tag->name }}
+                            </span>
+                            @endif
                             @endforeach
                         </p>
                         <div class="text-sm font-semibold flex flex-row-reverse">

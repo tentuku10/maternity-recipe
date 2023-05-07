@@ -14,7 +14,7 @@ class RecipeController extends Controller
         $query = Recipe::query();
         $recipes = Recipe::whereHas('tags', function ($query) use ($search) {
             $query->where('name', 'LIKE', "%{$search}%");
-        })->get();
+        })->orderBy('created_at', 'desc')->get();
         return view("recipe.index", ["recipes" => $recipes, "search" => $search]);
     }
 
