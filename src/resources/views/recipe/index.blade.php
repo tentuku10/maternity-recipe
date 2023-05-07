@@ -3,11 +3,18 @@
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
             レシピ一覧
         </h2>
-
         <x-message :message="session('message')" />
-
     </x-slot>
-
+    <div class="flex items-center justify-center h-full">
+        <form method="get" action="{{route('recipe.index')}}" style="margin-top: 30px;">
+            <input type="search" name="search" value="{{$search}}" placeholder="タグで検索"
+                class="flex-1 h-10 px-4 m-1 text-gray-100 placeholder-gray-400 rounded-lg bg-white lg:h-12 dark:text-gray-200 focus:outline-none focus:placeholder-transparent focus:ring-0 focus:text-black focus:border-black">
+            <button type="submit"
+                class="btn-primary bg-yellow-500 hover:bg-yellow-400 text-white font-bold py-2 px-4 rounded-lg">
+                検索
+            </button>
+        </form>
+    </div>
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         @foreach ($recipes as $recipe)
         <div class="mx-4 sm:p-8">

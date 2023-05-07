@@ -8,11 +8,14 @@ use Illuminate\Http\Request;
 
 class RecipeController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $recipes=Recipe::orderBy('created_at', 'desc')->get();
-        $user=auth()->user();
-        return view('recipe.index', compact('recipes', 'user'));
+        $search = $request->input("search");
+        $query = Recipe::query();
+        $recipes = Recipe::whereHas('tags', function ($query) use ($search) {
+            $query->where('name', 'LIKE', "%{$search}%");
+        })->get();
+        return view("recipe.index", ["recipes" => $recipes, "search" => $search]);
     }
 
     public function create()
