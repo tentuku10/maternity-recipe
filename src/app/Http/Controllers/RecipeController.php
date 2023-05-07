@@ -85,6 +85,8 @@ class RecipeController extends Controller
 
         $recipe->save();
 
+        $recipe->tags()->detach();
+
         $tags = explode(',', $request->tags);
         foreach ($tags as $tag_name) {
             $tag = Tag::firstOrCreate(['name' => $tag_name]);
