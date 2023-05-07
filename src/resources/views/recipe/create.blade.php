@@ -43,7 +43,7 @@
                     </div>
                 </div>
 
-                <x-primary-button class="mt-4 bg-yellow-500 hover:bg-yellow-600">
+                <x-primary-button class="mt-4">
                     送信する
                 </x-primary-button>
 
